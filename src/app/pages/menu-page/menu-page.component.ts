@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ViewContainerRef } from '@angular/core';
 import { ModalService } from '../../shared/services/modal.service';
 import { MenuListItemModel } from '../../shared/models/menu-item-list';
 import { CommonModule } from '@angular/common';
 import { MenuListItemComponent } from '../../shared/components/menu-list-item/menu-list-item.component';
+import { ModalGenericComponent } from '../../shared/components/modals/modal-generic/modal-generic.component';
 
 @Component({
   selector: 'app-menu-page',
@@ -12,7 +13,7 @@ import { MenuListItemComponent } from '../../shared/components/menu-list-item/me
   imports: [CommonModule, MenuListItemComponent ]
 })
 export class MenuPageComponent implements OnInit {
-
+  @ViewChild('modalContainer', { read: ViewContainerRef }) modalContainer!: ViewContainerRef;
   menus: MenuListItemModel[] = [];
   showModal: boolean = false;
 
@@ -29,9 +30,9 @@ export class MenuPageComponent implements OnInit {
   }
 
   openAddModal(){
-    const modalTitle = 'Título Personalizado';
+    const modalTitle = 'Añadir menú';
     const modalContent = '<p>Este es el contenido del modal.</p>';
-    this.modalService.openModal(modalTitle, modalContent);
+    this.modalService.openModal(ModalGenericComponent, modalTitle, modalContent);
   }
 
   closeModal(){

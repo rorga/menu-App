@@ -3,17 +3,15 @@
   <div class="modal-content">
     <div class="modal-header">
       <span>{{ title }}</span>
-      
+      <i (click)="close.emit()" class="fa-regular fa-circle-xmark fa-xl"></i>
     </div>
     <div class="modal-body">
-      <div>
-        <label for="nameInput">Nombre:</label>
-        <input type="text" [(ngModel)]="name">
-      </div>
+        <input type="text" placeholder="Escribe aquí el título del menú" [(ngModel)]="name">
     </div>
     <div class="modal-footer">
-      <button (click)="submitName()">Aceptar</button>
-      <button (click)="close.emit()">Cerrar</button>
+      <div >
+        <button (click)="submitName()">Aceptar</button>
+      </div>
     </div>
   </div>
 </div>
