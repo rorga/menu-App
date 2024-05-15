@@ -1,0 +1,19 @@
+<div class="modal-overlay"></div>
+<div class="modal">
+  <div class="modal-content">
+    <div class="modal-header">
+      <span>{{ title }}</span>
+      
+    </div>
+    <div class="modal-body">
+      <div>
+        <label for="nameInput">Nombre:</label>
+        <input type="text" [(ngModel)]="name">
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button (click)="submitName()">Aceptar</button>
+      <button (click)="close.emit()">Cerrar</button>
+    </div>
+  </div>
+</div>
